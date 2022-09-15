@@ -2,12 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Hexlibrium;
+using HEXLIBRIUM;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using MouseButton = UnityEngine.UIElements.MouseButton;
 using Random = UnityEngine.Random;
+
+using System.Numerics;
+using Cysharp.Threading.Tasks;
+using Hexlibrium;
+using MoralisUnity;
+using Nethereum.Hex.HexTypes;
+using Pixelplacement;
+using TMPro;
+using UnityEngine;
 
 public enum Math_Results
 {
@@ -36,6 +46,20 @@ public class Match_Handler : MonoBehaviour
 
     public Canvas canvas;
 
+    public GameObject fiveButtons;
+    
+    public GetRandomNumber _getRandomNumber;
+
+    public bool zero = false;
+
+    public int _useRandomNumber;
+    public int _Player_Choice;
+
+    public int variable;
+    private void Awake()
+    {
+        _getRandomNumber = GetComponentInParent<GetRandomNumber>();
+    }
     private void Update()
     {
     //     //get mouse click
@@ -61,20 +85,76 @@ public class Match_Handler : MonoBehaviour
     
             //Debug.Log(Player_Choice);
             //StartCoroutine(Play_Match());
-        
-    
-    
+            
+            _Player_Choice = Player_Choice;
+            
+            _useRandomNumber = _getRandomNumber.randomNumberResult;
+            
+            if (_useRandomNumber > 0 && _Player_Choice > 0)
+            {
+                zero = true;
+                
+            };
+
     }
+
+    // public static int ActionVariable()
+    // {
+    //     get
+    //     {
+    //         return variable;
+    //     }
+    //     set
+    //     {
+    //         variable = _useRandomNumber;
+    //         CallActionVariable();
+    //     }
+    // }
 
     public void ActionButton(int buttonNumber)
     {
         Debug.Log("Button " + buttonNumber + " pressed");
         Player_Choice = buttonNumber;
+        
+       //StartCoroutine(Play_Match());
 
-        StartCoroutine(Play_Match());
+        CallToAction();
 
     }
 
+    public async void CallToAction()
+    {
+        fiveButtons.gameObject.SetActive(false);
+        
+        bool result = await AwaitAction();
+
+        if (result == true)
+        {
+            StartCoroutine(Play_Match());
+        }
+        
+    }
+
+    public async UniTask<bool> AwaitAction()
+    {
+        
+        
+        StateMachineManager.instance.GetRandomNumber();
+
+        bool grn = zero; //_useRandomNumber;
+        
+        StartCoroutine(Play_Match());
+
+        return grn;
+
+    }
+
+    // public IEnumerator RandomNum(int _useRandomNumber)
+    // {
+    //     return _useRandomNumber;
+    // }
+
+  
 
     public void Make_Round()
     {
@@ -86,9 +166,13 @@ public class Match_Handler : MonoBehaviour
 
     public IEnumerator Play_Match()
     {
+        
+        
+        
         MouseHoverTiles.LockAll();
+        
         var Tile = null as MouseHoverTiles;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(10.0f);
         var whileVar = true;
         /*
         while (whileVar)
@@ -104,8 +188,12 @@ public class Match_Handler : MonoBehaviour
         */
         //var Tile = GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).GetComponent<MouseHoverTiles>();
         //Tile.SwitchToHoverAnimUninterrupted();
-        NPC_Choice = Random.Range(5, 10) + 1; // 6 a 10
+        //NPC_Choice = Random.Range(5, 10) + 1; // 6 a 10
+        
+        NPC_Choice = _useRandomNumber + 5;
         StartCoroutine(GetMatchResult());
+        //Debug.Log.Log(NPC_Choice);
+        
     }
 
     private IEnumerator PlayAnims(int a, int b)
@@ -152,7 +240,7 @@ public class Match_Handler : MonoBehaviour
         }
         player.GetComponent<Animator>().SetTrigger(stringPlayer);
         npc.GetComponent<Animator>().SetTrigger(stringNPC);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         player.GetComponent<Animator>().SetTrigger("release");
         npc.GetComponent<Animator>().SetTrigger("release");
     }
@@ -163,7 +251,7 @@ public class Match_Handler : MonoBehaviour
         TurnCounter++;
         var was_Stunned = false;
         var stunned = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.0f);
         switch (Compare_Values())
         {
             case Math_Results.Loss:
@@ -203,7 +291,8 @@ public class Match_Handler : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.0f);
+        
         ReleaseStuns();
         if (was_Stunned)
         {
@@ -214,6 +303,7 @@ public class Match_Handler : MonoBehaviour
             //GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).transform.parent.GetComponent<Animator>().SetTrigger(Stunned);
         }
         canClick = true;
+        fiveButtons.gameObject.SetActive(true);
         MouseHoverTiles.LockAll();
 
         /*
@@ -235,6 +325,8 @@ public class Match_Handler : MonoBehaviour
         if (TurnCounter-1 < 6 )
         {
             canClick = true;
+            StateMachineManager.instance.MintingRandomNumber();
+            
         }
         else
         {
@@ -398,7 +490,7 @@ public class Match_Handler : MonoBehaviour
     private IEnumerator ShowFeedback(string feedback, string type)
     {
         feedbackText.text = feedback;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.0f);
         feedbackText.text = "";
         if (type != "")
         {

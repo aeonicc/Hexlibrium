@@ -1,0 +1,233 @@
+<Block>
+  <blockName>Block Ins WhenPlayClicked</blockName>
+  <position>(264.8, 291.0, 0.0)</position>
+  <isVariable>false</isVariable>
+  <varName />
+  <sections>
+    <Section>
+      <childBlocks>
+        <Block>
+          <blockName>Block Ins If</blockName>
+          <position>(264.8, 256.8, 0.0)</position>
+          <isVariable>false</isVariable>
+          <varName />
+          <sections>
+            <Section>
+              <childBlocks>
+                <Block>
+                  <blockName>Block Ins TranslateToPosition</blockName>
+                  <position>(272.0, 228.0, 0.0)</position>
+                  <isVariable>false</isVariable>
+                  <varName />
+                  <sections>
+                    <Section>
+                      <childBlocks />
+                      <inputs>
+                        <Input>
+                          <isOperation>true</isOperation>
+                          <value />
+                          <operation>
+                            <Block>
+                              <blockName>Block Op Sum</blockName>
+                              <position>(309.8, 222.6, 0.0)</position>
+                              <isVariable>false</isVariable>
+                              <varName />
+                              <sections>
+                                <Section>
+                                  <childBlocks />
+                                  <inputs>
+                                    <Input>
+                                      <isOperation>true</isOperation>
+                                      <value />
+                                      <operation>
+                                        <Block>
+                                          <blockName>Block Op Sum</blockName>
+                                          <position>(315.2, 220.8, 0.0)</position>
+                                          <isVariable>false</isVariable>
+                                          <varName />
+                                          <sections>
+                                            <Section>
+                                              <childBlocks />
+                                              <inputs>
+                                                <Input>
+                                                  <isOperation>true</isOperation>
+                                                  <value />
+                                                  <operation>
+                                                    <Block>
+                                                      <blockName>Block Op Sum</blockName>
+                                                      <position>(320.6, 219.0, 0.0)</position>
+                                                      <isVariable>false</isVariable>
+                                                      <varName />
+                                                      <sections>
+                                                        <Section>
+                                                          <childBlocks />
+                                                          <inputs>
+                                                            <Input>
+                                                              <isOperation>true</isOperation>
+                                                              <value />
+                                                              <operation>
+                                                                <Block>
+                                                                  <blockName>Block Op Variable</blockName>
+                                                                  <position>(326.0, 213.7, 0.0)</position>
+                                                                  <isVariable>true</isVariable>
+                                                                  <varName>aaaa</varName>
+                                                                  <sections>
+                                                                    <Section>
+                                                                      <childBlocks />
+                                                                      <inputs>
+                                                                        <Input>
+                                                                          <isOperation>false</isOperation>
+                                                                          <value>aaaa</value>
+                                                                        </Input>
+                                                                      </inputs>
+                                                                    </Section>
+                                                                  </sections>
+                                                                </Block>
+                                                              </operation>
+                                                            </Input>
+                                                            <Input>
+                                                              <isOperation>true</isOperation>
+                                                              <value />
+                                                              <operation>
+                                                                <Block>
+                                                                  <blockName>Block Op Sum</blockName>
+                                                                  <position>(395.7, 217.2, 0.0)</position>
+                                                                  <isVariable>false</isVariable>
+                                                                  <varName />
+                                                                  <sections>
+                                                                    <Section>
+                                                                      <childBlocks />
+                                                                      <inputs>
+                                                                        <Input>
+                                                                          <isOperation>true</isOperation>
+                                                                          <value />
+                                                                          <operation>
+                                                                            <Block>
+                                                                              <blockName>Block Op Sum</blockName>
+                                                                              <position>(401.1, 215.4, 0.0)</position>
+                                                                              <isVariable>false</isVariable>
+                                                                              <varName />
+                                                                              <sections>
+                                                                                <Section>
+                                                                                  <childBlocks />
+                                                                                  <inputs>
+                                                                                    <Input>
+                                                                                      <isOperation>true</isOperation>
+                                                                                      <value />
+                                                                                      <operation>
+                                                                                        <Block>
+                                                                                          <blockName>Block Op Sum</blockName>
+                                                                                          <position>(406.5, 213.7, 0.0)</position>
+                                                                                          <isVariable>false</isVariable>
+                                                                                          <varName />
+                                                                                          <sections>
+                                                                                            <Section>
+                                                                                              <childBlocks />
+                                                                                              <inputs>
+                                                                                                <Input>
+                                                                                                  <isOperation>false</isOperation>
+                                                                                                  <value></value>
+                                                                                                </Input>
+                                                                                                <Input>
+                                                                                                  <isOperation>false</isOperation>
+                                                                                                  <value></value>
+                                                                                                </Input>
+                                                                                              </inputs>
+                                                                                            </Section>
+                                                                                          </sections>
+                                                                                        </Block>
+                                                                                      </operation>
+                                                                                    </Input>
+                                                                                    <Input>
+                                                                                      <isOperation>false</isOperation>
+                                                                                      <value></value>
+                                                                                    </Input>
+                                                                                  </inputs>
+                                                                                </Section>
+                                                                              </sections>
+                                                                            </Block>
+                                                                          </operation>
+                                                                        </Input>
+                                                                        <Input>
+                                                                          <isOperation>false</isOperation>
+                                                                          <value></value>
+                                                                        </Input>
+                                                                      </inputs>
+                                                                    </Section>
+                                                                  </sections>
+                                                                </Block>
+                                                              </operation>
+                                                            </Input>
+                                                          </inputs>
+                                                        </Section>
+                                                      </sections>
+                                                    </Block>
+                                                  </operation>
+                                                </Input>
+                                                <Input>
+                                                  <isOperation>false</isOperation>
+                                                  <value></value>
+                                                </Input>
+                                              </inputs>
+                                            </Section>
+                                          </sections>
+                                        </Block>
+                                      </operation>
+                                    </Input>
+                                    <Input>
+                                      <isOperation>false</isOperation>
+                                      <value></value>
+                                    </Input>
+                                  </inputs>
+                                </Section>
+                              </sections>
+                            </Block>
+                          </operation>
+                        </Input>
+                        <Input>
+                          <isOperation>false</isOperation>
+                          <value>2</value>
+                        </Input>
+                        <Input>
+                          <isOperation>false</isOperation>
+                          <value>3</value>
+                        </Input>
+                      </inputs>
+                    </Section>
+                  </sections>
+                </Block>
+              </childBlocks>
+              <inputs>
+                <Input>
+                  <isOperation>true</isOperation>
+                  <value />
+                  <operation>
+                    <Block>
+                      <blockName>Block Op JoystickKeyPressed</blockName>
+                      <position>(285.6, 251.4, 0.0)</position>
+                      <isVariable>false</isVariable>
+                      <varName />
+                      <sections>
+                        <Section>
+                          <childBlocks />
+                          <inputs>
+                            <Input>
+                              <isOperation>false</isOperation>
+                              <value>Down</value>
+                            </Input>
+                          </inputs>
+                        </Section>
+                      </sections>
+                    </Block>
+                  </operation>
+                </Input>
+              </inputs>
+            </Section>
+          </sections>
+        </Block>
+      </childBlocks>
+      <inputs />
+    </Section>
+  </sections>
+</Block>
+#

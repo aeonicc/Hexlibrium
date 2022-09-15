@@ -17,7 +17,7 @@ public class TileHex : MonoBehaviour {
 	public static float planetScale;
 	private static int ID = 0;
 
-    public static Action<TileHex> OnTileClickedAction;
+    public static Action<TileHex> OnTileClickedAction, OnTranslateAction;
 
 	[Tooltip("The instance of the hexsphere which constructed this TileHex")]
 	public Hexsphere parentPlanet;
@@ -142,11 +142,33 @@ public class TileHex : MonoBehaviour {
         }
 	}
 
+	void OnTranslate()
+	{
+		if(OnTranslateAction != null)
+		{
+			OnTranslateAction.Invoke(this);
+		}
+	}
+
 	/// <summary>
 	/// Just a simple demo function that allows you to click on two tiles and draw the shortest path between them.
 	/// </summary>
 	public void pathfindingDrawDemo()
     {
+		if (selectedTile == null) {
+			selectedTile = this;
+		}
+		else if(selectedTile != this){
+			Stack<TileHex> path = new Stack<TileHex>();
+			if(parentPlanet.navManager.findPath(selectedTile, this, out path)){
+				parentPlanet.navManager.drawPath(path);
+				selectedTile = null;
+			}
+		}
+	}
+	
+	public void pathfindingDrawTranslate()
+	{
 		if (selectedTile == null) {
 			selectedTile = this;
 		}
