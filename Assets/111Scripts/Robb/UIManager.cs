@@ -62,6 +62,8 @@ namespace HEXLIBRIUM
         public Image powerSetImage;
         public TextMeshProUGUI mintkeyText;
         
+        public TextMeshProUGUI timeText;
+        
         public GameObject pauseScreen, optionsScreen;
         public Slider musicVolSlider, sfxVolSlider;
         public string levelSelect, mainMenu;

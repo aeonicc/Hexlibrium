@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Hexlibrium;
 using UnityEngine;
 using UnityEngine.UI;
+using HEXLIBRIUM;
 
 
 namespace HEXLIBRIUM
@@ -63,9 +65,13 @@ namespace HEXLIBRIUM
             //currentBool = true;
             
             
-            if (UIManager.currentBool == true && other.CompareTag("Player") )
+            // if (UIManager.currentBool == true && other.CompareTag("Player") )
+            // {
+                
+            if (other.CompareTag("Player") )
             {
                 Debug.Log("1");
+                //StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
 
                 if (GameManager.instance.currentCrystals < 12)
                 {
@@ -94,6 +100,11 @@ namespace HEXLIBRIUM
 
                     Instantiate(pickupEffect, transform.position, transform.rotation);
                     AudioManager.instance.PlaySFX(soundToPlay);
+                }
+                
+                if(GameManager.instance.currentCrystals == 12)
+                {
+                    StateMachineManager.instance.ChangeState("H03");
                 }
 
                 UIManager.currentBool = false;

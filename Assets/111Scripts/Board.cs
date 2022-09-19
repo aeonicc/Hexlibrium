@@ -139,8 +139,11 @@ namespace HEXLIBRIUM
         hexCounter = 0;
         
         Debug.Log("Reached12");
-        StateMachineManager.instance.Hh02();
-        
+        //StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
+        Debug.Log(this.gameObject);
+
+        StateMachineManager.instance.ChangeState("H04");
+
         //YinYanForm();
     }
     

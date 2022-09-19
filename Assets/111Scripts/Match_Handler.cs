@@ -59,6 +59,8 @@ public class Match_Handler : MonoBehaviour
     private void Awake()
     {
         _getRandomNumber = GetComponentInParent<GetRandomNumber>();
+        
+        Debug.Log(this.gameObject);
     }
     private void Update()
     {
@@ -84,17 +86,17 @@ public class Match_Handler : MonoBehaviour
     // Player_Choice = int.Parse(); //Parse(TileID.tag.ToString().Remove(0, 5));
     
             //Debug.Log(Player_Choice);
-            //StartCoroutine(Play_Match());
+            // StartCoroutine(Play_Match());
             
-            _Player_Choice = Player_Choice;
-            
-            _useRandomNumber = _getRandomNumber.randomNumberResult;
-            
-            if (_useRandomNumber > 0 && _Player_Choice > 0)
-            {
-                zero = true;
-                
-            };
+            // _Player_Choice = Player_Choice;
+            //
+            // _useRandomNumber = _getRandomNumber.randomNumberResult;
+            //
+            // if (_useRandomNumber > 0 && _Player_Choice > 0)
+            // {
+            //     zero = true;
+            //     
+            // };
 
     }
 
@@ -116,38 +118,42 @@ public class Match_Handler : MonoBehaviour
         Debug.Log("Button " + buttonNumber + " pressed");
         Player_Choice = buttonNumber;
         
-       //StartCoroutine(Play_Match());
-
-        CallToAction();
-
-    }
-
-    public async void CallToAction()
-    {
-        fiveButtons.gameObject.SetActive(false);
         
-        bool result = await AwaitAction();
-
-        if (result == true)
-        {
-            StartCoroutine(Play_Match());
-        }
+        StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
         
-    }
-
-    public async UniTask<bool> AwaitAction()
-    {
-        
-        
-        StateMachineManager.instance.GetRandomNumber();
-
-        bool grn = zero; //_useRandomNumber;
-        
+        StateMachineManager.instance.GetRandomNumber(); 
         StartCoroutine(Play_Match());
 
-        return grn;
+        //CallToAction();
 
     }
+
+    // public async void CallToAction()
+    // {
+    //     fiveButtons.gameObject.SetActive(false);
+    //     
+    //     bool result = await AwaitAction();
+    //
+    //     if (result == true)
+    //     {
+    //         StartCoroutine(Play_Match());
+    //     }
+    //     
+    // }
+    //
+    // public async UniTask<bool> AwaitAction()
+    // {
+    //     
+    //     
+    //     StateMachineManager.instance.GetRandomNumber();
+    //
+    //     bool grn = zero; //_useRandomNumber;
+    //     
+    //     StartCoroutine(Play_Match());
+    //
+    //     return grn;
+    //
+    // }
 
     // public IEnumerator RandomNum(int _useRandomNumber)
     // {
@@ -188,9 +194,11 @@ public class Match_Handler : MonoBehaviour
         */
         //var Tile = GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).GetComponent<MouseHoverTiles>();
         //Tile.SwitchToHoverAnimUninterrupted();
-        //NPC_Choice = Random.Range(5, 10) + 1; // 6 a 10
         
-        NPC_Choice = _useRandomNumber + 5;
+        NPC_Choice = Random.Range(5, 10) + 1; // 6 a 10
+        
+        //NPC_Choice = _useRandomNumber + 5;
+        
         StartCoroutine(GetMatchResult());
         //Debug.Log.Log(NPC_Choice);
         
@@ -325,13 +333,14 @@ public class Match_Handler : MonoBehaviour
         if (TurnCounter-1 < 6 )
         {
             canClick = true;
-            StateMachineManager.instance.MintingRandomNumber();
+            StateMachineManager.instance.Hh64();
+            StateMachineManager.instance.theFiveButtons.gameObject.SetActive(true);
             
         }
         else
         {
             //end game pode colocar aqui a função de chamar o nft
-            StateMachineManager.instance.Hh03();
+            StateMachineManager.instance.ChangeState("H05");
         }
         /*
         else if (TurnCounter-1 == 6 && (_matchResultCounter == 0))

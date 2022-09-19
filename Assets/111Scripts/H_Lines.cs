@@ -37,12 +37,11 @@ public class H_Lines : MonoBehaviour
 
      
     }
-    void Start()
+    void OnEnable()
     {
-        // for (int i = 0; i <= 5; i++)
-        // {
-        //     buttons[i].gameObject.SetActive(false);
-        // }
+     
+
+     
         
         
 
@@ -51,23 +50,14 @@ public class H_Lines : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        SwitchLines();
-
-    }
-
-    public void SwitchLines()
-    {
-       
-        
         switch (currentLine)
         {
-            // case LinesPhase.h0:
-            //     // for (int i = 0; i <= 7; i++)
-            //     // {
-            //         buttons[0].transform.gameObject.SetActive(false);
-            //     // }
-            //     break;
+            case LinesPhase.h0:
+                for (int i = 0; i <= 5; i++)
+                { 
+                    buttons[i].transform.gameObject.SetActive(false);
+                }
+                break;
             case LinesPhase.h1:
                 buttons[0].transform.gameObject.SetActive(true);
                 break;
@@ -86,19 +76,14 @@ public class H_Lines : MonoBehaviour
             case LinesPhase.h6:
                 buttons[5].transform.gameObject.SetActive(true);
                 break;
-            // case LinesPhase.h7:
-            //     // for (int i = 0; i <= 7; i++)
-            //     // {
-            //         buttons[7].transform.gameObject.SetActive(true);
-            //     // }
-            //     break;
-            // case LinesPhase.h6:
-            //     buttons[6].transform.gameObject.SetActive(true);
-            //     break;
-            //default:
-            //throw new ArgumentOutOfRangeException();
-            //Debug.Log("default");
-        
+            case LinesPhase.h7:
+                for (int i = 0; i < 5; i++)
+                {
+                    buttons[i].transform.gameObject.SetActive(true);
+                }
+                break;  
         }
     }
+
+
 }

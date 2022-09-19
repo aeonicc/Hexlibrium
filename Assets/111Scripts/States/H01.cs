@@ -9,40 +9,28 @@ namespace HEXLIBRIUM
 {
     public class H01 : State
     {
-       
-        private void Awake()
+        private void OnEnable()
         {
+            StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
             
-           
-        }
-
-        private void Start()
-        {
-            
-        }
-
-        public void Update()
-        {
-            
-            Interface();
-            
-        }
-
-        public void Interface()
-        {
             StateMachineManager.instance.playerCamera.gameObject.SetActive(true);
             StateMachineManager.instance.boardCamera.gameObject.SetActive(false);
             StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
 
+            StateMachineManager.instance.buttonCoin.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonCrystal.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonHeath.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonSolidity.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonCronos.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonGold.gameObject.SetActive(false);
+
             StartCoroutine(Lines());
+            
+            
         }
 
         public static IEnumerator Lines()
         {
-
-            
-            yield return new WaitForSeconds(2f);
-            H_Lines.instance.currentLine = H_Lines.LinesPhase.h0;
             yield return new WaitForSeconds(2f);
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h1;
             yield return new WaitForSeconds(2f);
@@ -55,13 +43,8 @@ namespace HEXLIBRIUM
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h5;
             yield return new WaitForSeconds(2f);
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h6;
-            yield return new WaitForSeconds(2f);
-            H_Lines.instance.currentLine = H_Lines.LinesPhase.h7;
-
-
-
-
-
+            yield return new WaitForSeconds(10f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h0;
 
         }
     }

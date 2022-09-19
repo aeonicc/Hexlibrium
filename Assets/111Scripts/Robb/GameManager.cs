@@ -112,6 +112,18 @@ namespace HEXLIBRIUM
             }
         }
         
+        public void AddGold(int goldToAdd)
+        {
+            // currentCoins += goldToAdd;
+            // UIManager.instance.coinText.text = "" + currentCoins;
+            //
+            // if (currentCoins == 100)
+            // {
+            //     UIManager.instance.ActivateButton();
+            //     //StateMachineManager.instance.MintingCoin();
+            // }
+        }
+        
     
         public void SeedCamera()
         {

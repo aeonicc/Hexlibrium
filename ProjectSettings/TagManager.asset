@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tile 1
+  - Tile 2
+  - Tile 10
+  - Tile 9
+  - Tile 4
+  - Tile 3
+  - Tile 7
+  - Tile 8
+  - Tile 6
+  - Tile 5
+  - QrConnectMenu
+  - IOSConnectMenu
+  - MetaverseItem
+  - Robot
   layers:
   - Default
   - TransparentFX

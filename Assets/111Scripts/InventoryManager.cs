@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Hexlibrium;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -158,7 +159,11 @@ namespace HEXLIBRIUM
 
             if (currentCrystal > maxCrystal)
             {
+               
+                
                 currentCrystal = maxCrystal;
+
+                
             }
 
             UpdateUI();

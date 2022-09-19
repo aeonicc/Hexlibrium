@@ -24,43 +24,45 @@ using UnityEngine;
 
 namespace HEXLIBRIUM
 {
-    
-
     public class H04 : State
     {
-      
-
-        public void OnEnable()
+        private void OnEnable()
         {
-            Hhh04();
-        }
-
-        public void Update()
-        {
-            for (int i = 0; i <= 5; i++)
-            {
-                //_buttons. 
+            StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
             
-            }
-        }
-
-        public void Hhh04()
-        {
-            // BossController.instance.DamageBoss();
-            //BossController.instance.currentPhase = BossController.BossPhase.end;
-            // StateMachineManager.instance.MintingMetaverseItem();
-            //StateMachineManager.instance.Hh05();
-           StartCoroutine(CallYinYang());
+            StateMachineManager.instance.playerCamera.gameObject.SetActive(false);
+            StateMachineManager.instance.boardCamera.gameObject.SetActive(true);
+            StateMachineManager.instance.theFiveButtons.gameObject.SetActive(true);
+            
+            StateMachineManager.instance.buttonCoin.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonCrystal.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonHeath.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonSolidity.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonCronos.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonGold.gameObject.SetActive(false);
+            
+            StateMachineManager.instance.theBoss.SetActive(true);
+            
+            //StartCoroutine(Lines());
         }
         
-        public IEnumerator CallYinYang()
+        public static IEnumerator Lines()
         {
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h1;
             
-            yield return new WaitForSeconds(4f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h2;
             
-            Board.instance.YinYanForm();
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h3;
             
-            StateMachineManager.instance.MintingMetaverseItem();
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h4;
+            
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h5;
+            
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h6;
+            
+            //H_Lines.instance.currentLine = H_Lines.LinesPhase.h0;
         }
     }
 }
+

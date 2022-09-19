@@ -11,11 +11,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace HEXLIBRIUM
-{
+{ 
     
-
-
-public class UploadingPanel : MonoBehaviour
+    public class UploadingPanel : MonoBehaviour
 {
     public Action<string, string, string, byte[]> UploadButtonPressed;
     
@@ -35,7 +33,7 @@ public class UploadingPanel : MonoBehaviour
     //
     //
     //
-    public static Action<AttributeObject> OnSubmittedAttribute;
+    public Action<AttributeObject> OnSubmittedAttribute;
         
     [SerializeField] private Button submitButton;
             

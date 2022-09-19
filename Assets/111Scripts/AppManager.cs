@@ -26,12 +26,12 @@ namespace HEXLIBRIUM
     public class AppManager : MonoBehaviour
     {
         public static AppManager instance;
-        //public AppManager appManager;
+        
+        //[SerializeField] private MainPanel mainPanel;
         [SerializeField] private UploadingPanel uploadingPanel;
         [SerializeField] private TextMeshProUGUI statusLabel;
         
         [HideInInspector] public List<AttributeObject> currentAttributeObjects = new List<AttributeObject>();
-        
 
         
         #region UNITY_LIFECYCLE
@@ -45,14 +45,14 @@ namespace HEXLIBRIUM
         {
             uploadingPanel.UploadButtonPressed += UploadToIpfs;
             //uploadingPanel.OnSubmittedAttribute += AddAttributeObject;
-            //uploadingPanel.OnDeleted += DeleteAttributeObject;
+            AttributeItem.OnDeleted += DeleteAttributeObject;
         }
 
         private void OnDisable()
         {
             uploadingPanel.UploadButtonPressed -= UploadToIpfs;
             //uploadingPanel.OnSubmittedAttribute -= AddAttributeObject;
-            //uploadingPanel.OnDeleted -= DeleteAttributeObject;
+            AttributeItem.OnDeleted -= DeleteAttributeObject;
         }
 
         #endregion
@@ -60,20 +60,20 @@ namespace HEXLIBRIUM
         
         #region PUBLIC_METHODS
 
-        public void ToMainState()
-        {
-            //ChangeState("Main");
-        }
-        
-        public void ToViewAttributesState()
-        {
-            //ChangeState("ViewAttributes");
-        }
-        
-        public void ToNewAttributeState()
-        {
-            //ChangeState("NewAttribute");
-        }
+        // public void ToMainState()
+        // {
+        //     ChangeState("Main");
+        // }
+        //
+        // public void ToViewAttributesState()
+        // {
+        //     ChangeState("ViewAttributes");
+        // }
+        //
+        // public void ToNewAttributeState()
+        // {
+        //     ChangeState("NewAttribute");
+        // }
 
         public void SetStatusLabelText(string newText)
         {
@@ -117,7 +117,7 @@ namespace HEXLIBRIUM
                 Debug.Log("Failed to save image to IPFS");
                 SetStatusLabelText("Failed to save image to IPFS");
                 
-                //mainPanel.EnableUploadButton();
+                uploadingPanel.EnableUploadButton();
                 return;
             }
             
@@ -143,7 +143,7 @@ namespace HEXLIBRIUM
                 Debug.Log("Failed to save metadata to IPFS");
                 SetStatusLabelText("Failed to save metadata to IPFS");
                 
-                //mainPanel.EnableUploadButton();
+                uploadingPanel.EnableUploadButton();
                 return;
             }
             
@@ -151,7 +151,7 @@ namespace HEXLIBRIUM
             Debug.Log(ipfsMetadataPath);
             
             SetStatusLabelText("Metadata saved successfully to IPFS!");
-            //mainPanel.EnableUploadButton();
+            uploadingPanel.EnableUploadButton();
         }
         
         

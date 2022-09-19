@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 
 public enum TileDisplayOptions
 {
@@ -98,6 +99,12 @@ public class TileHex : MonoBehaviour {
 	void Awake()
     {
 		tileRenderer = GetComponent<Renderer> ();
+	}
+
+	private void Update()
+	{
+
+		
 	}
 
 	public void Initialize()
@@ -413,11 +420,15 @@ public class TileHex : MonoBehaviour {
             {
                 tileRenderer.sharedMaterial = parentPlanet.GroupMaterials_PentExtruded[GroupID];
                 TileMaterial = tileRenderer.sharedMaterial;
+                
+                
             }
             else if (!hasBeenExtruded && GroupID < parentPlanet.GroupMaterials_Pent.Length)
             {
                 tileRenderer.sharedMaterial = parentPlanet.GroupMaterials_Pent[GroupID];
                 TileMaterial = tileRenderer.sharedMaterial;
+                
+                
             }
         }
 

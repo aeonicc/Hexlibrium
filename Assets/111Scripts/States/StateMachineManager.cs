@@ -37,10 +37,13 @@ public class StateMachineManager : StateMachine
     public Camera boardCamera;
     public GameObject theFiveButtons;
 
-    // public GameObject buttonHeath;
-    // public GameObject buttonCrystal;
-    // public GameObject buttonCoin;
-
+    public GameObject buttonHeath;
+    public GameObject buttonCrystal;
+    public GameObject buttonCoin;
+    public GameObject buttonSolidity;
+    public GameObject buttonCronos;
+    public GameObject buttonGold;
+    
     public GameObject theBoss;
 
     public GameObject hLines;
@@ -75,21 +78,27 @@ public class StateMachineManager : StateMachine
         switch (stateEntered.name)
         {
             case "H00":
+         
                 break;
                 
             case "H01":
+           
                 break;
                 
             case "H002":
+         
                 break;
                 
             case "H03":
+        
                 break;
                 
             case "H04":
+              
                 break;
             
             case "H05":
+                //ChangeState("MintingMetaverseItem");
                 break;
                 
             case "H06":
@@ -102,6 +111,7 @@ public class StateMachineManager : StateMachine
                 break;
                 
             case "MiningGold":
+                //ChangeState("H00");
                 break;
             
             case "MiningCoin":
@@ -111,6 +121,7 @@ public class StateMachineManager : StateMachine
                 break;
                 
             case "MintingMetaverseItem":
+                //ChangeState("H00");
                 break;
                 
             case "MintingPanel":
@@ -118,10 +129,22 @@ public class StateMachineManager : StateMachine
                 
             case "MintingRandomNumber":
                 break;
-
+            
+            case "Board":
+                //ChangeState("H04");
+                break;
+            
+            case "Match_Handler":
+                //ChangeState("H05");
+                break;
+            
+            case "GameCrystal":
+                //ChangeState("H02");
+                break;
+    
         }
     }
-    //     
+        
     public void OnStateExitedHandler(GameObject stateExited)
     {
         switch (stateExited.name)
@@ -181,62 +204,56 @@ public class StateMachineManager : StateMachine
         //player.walletAddress.Activate()
         ChangeState("H01");
     }
-    
-   
-    public void MintingCoin()
-    {
-        //player.walletAddress.Deactivate();
-        ChangeState("MintingCoin");
-    }
-    
-    public void MintingMetaverseItem()
-    {
-        Debug.Log("message");
-    //player.walletAddress.Deactivate();
-        ChangeState("MintingMetaverseItem");
-    }
-    
-    public void Hh00()
-    {
-        ChangeState("H00");
-    }
-    
-    public void Hh01()
-    {
-        ChangeState("H01");
-    }
-    
-    public void Hh02()
-    {
-        ChangeState("H02");
-    }
-    
-    public void Hh03()
-    {
-        ChangeState("H03");
-    }
+ 
+    // public void Hh00()
+    // {
+    //     ChangeState("H00");
+    // }
+    //
+    // public void Hh01()
+    // {
+    //     ChangeState("H01");
+    // }
+    //
+    // public void Hh02()
+    // {
+    //     ChangeState("H02");
+    // }
+    //
+    // public void Hh03()
+    // {
+    //     ChangeState("H03");
+    // }
+    //
+    // public void Hh04()
+    // {
+    //     ChangeState("H04");
+    // }
+    //
+    // public void Hh05()
+    // {
+    //     ChangeState("H05");
+    // }
+    //
+    // public void Hh06()
+    // {
+    //     ChangeState("H06");
+    // }
+    //
+    // public void Hh07()
+    // {
+    //     ChangeState("H07");
+    // }
+    //
+    // public void Hh08()
+    // {
+    //     ChangeState("H08");
+    // }
 
-
-    public void Hh04()
-    {
-        ChangeState("H04");
-    }
-    
-    public void Hh05()
-    {
-        ChangeState("H05");
-    }
-    
-    public void Hh06()
-    {
-        ChangeState("H06");
-    }
-    
     public void GetRandomNumber()
     {
         ChangeState("GetRandomNumber");
     }
-    
 
     public void MintingRandomNumber()
     {
@@ -248,6 +265,19 @@ public class StateMachineManager : StateMachine
         ChangeState("MiningGold");
     }
 
+
+    public void MintingCoin()
+    {
+        //player.walletAddress.Deactivate();
+        ChangeState("MintingCoin");
+    }
+    
+    public void MintingMetaverseItem()
+    {
+        Debug.Log("message");
+        //player.walletAddress.Deactivate();
+        ChangeState("MintingMetaverseItem");
+    }
 
 
     public void Hh64()

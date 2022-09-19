@@ -98,7 +98,7 @@ namespace HEXLIBRIUM
             //dappManager.isItemMinted = false;
             isItemMinted = false;
             
-            GoToViewing();
+            
             return;
         }
     
@@ -106,9 +106,14 @@ namespace HEXLIBRIUM
         statusText.text = "Transaction completed!";
         // dappManager.itemTokenId = _currentTokenId.ToString();
         // dappManager.isItemMinted = true;
+
+        
+        
         
         itemTokenId = currentTokenId.ToString();
         isItemMinted = true;
+        
+        StateMachineManager.instance.ChangeState("H06");
         
     }
     
@@ -154,10 +159,7 @@ namespace HEXLIBRIUM
         cancelButton.SetActive(true);
     }
 
-    public void GoToViewing()
-    {
-        StateMachineManager.instance.Hh06();
-    }
+  
 }
     
     

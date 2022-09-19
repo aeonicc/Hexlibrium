@@ -11,23 +11,21 @@ namespace HEXLIBRIUM
 
 public class H00 : State
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void Awake()
-    {
-        StateMachineManager.instance.playerCamera.gameObject.SetActive(true);
-        StateMachineManager.instance.boardCamera.gameObject.SetActive(false);
-        StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
-    }
+      private void OnEnable()
+      {
+          StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
+          
+           StateMachineManager.instance.playerCamera.gameObject.SetActive(true);
+           StateMachineManager.instance.boardCamera.gameObject.SetActive(false);
+           
+           StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
+           
+           StateMachineManager.instance.buttonCoin.gameObject.SetActive(true);
+           StateMachineManager.instance.buttonCrystal.gameObject.SetActive(true);
+           StateMachineManager.instance.buttonHeath.gameObject.SetActive(true);
+           StateMachineManager.instance.buttonSolidity.gameObject.SetActive(true);
+           StateMachineManager.instance.buttonCronos.gameObject.SetActive(true);
+           StateMachineManager.instance.buttonGold.gameObject.SetActive(true);
+      }
 }
 }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Hexlibrium;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class BE2_TargetObjectSpacecraft3D : BE2_TargetObject
 {
     GameObject _bullet;
-
+    
     public Transform Transform => transform;
 
     //
@@ -25,6 +27,8 @@ public class BE2_TargetObjectSpacecraft3D : BE2_TargetObject
     void Awake()
     {
         _bullet = transform.GetChild(transform.childCount-1).gameObject;
+        
+        Debug.Log(this.gameObject);
     }
 
     public void moveOnPath(Stack<TileHex> path)

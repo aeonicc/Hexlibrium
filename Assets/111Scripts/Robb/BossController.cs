@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Hexlibrium;
 using UnityEngine;
 
 namespace HEXLIBRIUM
@@ -105,6 +106,7 @@ namespace HEXLIBRIUM
             AudioManager.instance.PlaySFX(bossDeathShout);
             AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
             yield return new WaitForSeconds(waitToShowExit);
+            StateMachineManager.instance.ChangeState("H07");
             victoryZone.SetActive(true);
         }
     }

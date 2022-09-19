@@ -9,51 +9,42 @@ namespace HEXLIBRIUM
 {
     public class H03 : State
     {
-        public void Awake()
+        // Start is called before the first frame update
+        void OnEnable()
         {
+            StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
             
-        }
-
-        public void Start()
-        {
-            
-        }
-
-        public void OnEnable()
-        {
-            Hhh03();
-        }
-
-        public void Update()
-        {
-            for (int i = 0; i <= 5; i++)
-            {
-                //_buttons. 
-            
-            }
-            
-        }
-
-        public void Hhh03()
-        {
             StateMachineManager.instance.playerCamera.gameObject.SetActive(true);
             StateMachineManager.instance.boardCamera.gameObject.SetActive(false);
             StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
             
-            UIManager.instance.crystalButton.gameObject.SetActive(true);
-            UIManager.instance.coinButton.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonCoin.gameObject.SetActive(false);
+            StateMachineManager.instance.buttonCrystal.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonHeath.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonSolidity.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonCronos.gameObject.SetActive(true);
+            StateMachineManager.instance.buttonGold.gameObject.SetActive(false);
             
-            //TimeController.instance.ActivateTimeChange();
-            
-            //BossController.instance.DamageBoss();
-            BossController.instance.gameObject.SetActive(false);
-            
-            StateMachineManager.instance.Hh04();
-            
+            StartCoroutine(Lines());
         }
-
-  
-
+        public static IEnumerator Lines()
+        {
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h1;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h2;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h3;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h4;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h5;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h6;
+            yield return new WaitForSeconds(2f);
+            H_Lines.instance.currentLine = H_Lines.LinesPhase.h0;
+        }
     }
-    
 }
+
+
