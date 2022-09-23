@@ -52,13 +52,13 @@ public class TimeController : MonoBehaviour
         
         //if(StateMachineManager.instance.OnStateEnteredHandler(H02))
         
-        timePulse = (64 - (Time.frameCount / 100)) + timePulseUpdate;
+        timePulse = (64 - (Time.frameCount / 50)) + timePulseUpdate;
 
        
         
         if (timePulse < 0)
         {
-            timePulseUpdate = 64;
+            timePulseUpdate = 4096;
             StateMachineManager.instance.ChangeState("H02");
         }
       

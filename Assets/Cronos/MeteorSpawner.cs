@@ -16,7 +16,7 @@ public class MeteorSpawner : MonoBehaviour {
 		Vector3 pos = Random.onUnitSphere * 50f;
 		Instantiate(meteorPrefab, pos, Quaternion.identity);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		StartCoroutine(SpawnMeteor());
 	}

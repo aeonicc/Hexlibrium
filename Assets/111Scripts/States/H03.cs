@@ -41,7 +41,7 @@ namespace HEXLIBRIUM
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h5;
             yield return new WaitForSeconds(2f);
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h6;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(10f);
             H_Lines.instance.currentLine = H_Lines.LinesPhase.h0;
         }
     }

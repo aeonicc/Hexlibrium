@@ -95,7 +95,7 @@ namespace HEXLIBRIUM
 
         public async void SelectImage()
         {
-            _imagePath = EditorUtility.OpenFilePanel("Select a PNG", "", "png");
+            //_imagePath = EditorUtility.OpenFilePanel("Select a PNG", "", "png");
 
             if (_imagePath.Length == 0)
             {
