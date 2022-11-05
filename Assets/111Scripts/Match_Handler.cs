@@ -60,7 +60,7 @@ public class Match_Handler : MonoBehaviour
     {
         _getRandomNumber = GetComponentInParent<GetRandomNumber>();
         
-        Debug.Log(this.gameObject);
+//        Debug.Log(this.gameObject);
     }
     private void Update()
     {

@@ -13,7 +13,7 @@ public class H00 : State
 {
       private void OnEnable()
       {
-          StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
+           StateMachineManager.instance.OnStateEnteredHandler(this.gameObject);
           
            StateMachineManager.instance.playerCamera.gameObject.SetActive(true);
            StateMachineManager.instance.boardCamera.gameObject.SetActive(false);

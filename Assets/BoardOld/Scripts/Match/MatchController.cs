@@ -95,7 +95,8 @@ public class MatchController : MonoBehaviour
             hexagramCounter = 10;
             var position = terrainPosition.transform.position;
             terrainParent.GetComponent<Animator>().SetTrigger(Levitate);
-            var instantiate = (hexagramNumberArray[0], hexagramNumberArray[1], hexagramNumberArray[2]) switch //// gameManager.objectNFT =
+            var instantiate = (hexagramNumberArray[0], hexagramNumberArray[1], hexagramNumberArray[2]) 
+                switch //// gameManager.objectNFT =
             {
                 (0, 0, 0) => Instantiate(terrain[0].gameObject, position, Quaternion.identity,
                     terrainParent.transform),
