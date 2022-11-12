@@ -39,6 +39,7 @@ public class Match_Handler : MonoBehaviour
     private bool canClick = true;
     private int _matchResultCounter;
     private int TurnCounter;
+    
     private static readonly int Stunned = Animator.StringToHash("Stunned");
     private static readonly int SwitchToHoverFatherReverse = Animator.StringToHash("SwitchToHoverFatherReverse");
     private static readonly int SwitchToHoverFather = Animator.StringToHash("SwitchToHoverFather");
@@ -46,8 +47,6 @@ public class Match_Handler : MonoBehaviour
 
     public Canvas canvas;
 
-    public GameObject fiveButtons;
-    
     public GetRandomNumber _getRandomNumber;
 
     public bool zero = false;
@@ -117,11 +116,11 @@ public class Match_Handler : MonoBehaviour
     {
         Debug.Log("Button " + buttonNumber + " pressed");
         Player_Choice = buttonNumber;
-        
-        
+
         StateMachineManager.instance.theFiveButtons.gameObject.SetActive(false);
+        StateMachineManager.instance.the5buttons.gameObject.SetActive(false);
         
-        StateMachineManager.instance.GetRandomNumber(); 
+        //StateMachineManager.instance.GetRandomNumber(); 
         StartCoroutine(Play_Match());
 
         //CallToAction();
@@ -160,8 +159,6 @@ public class Match_Handler : MonoBehaviour
     //     return _useRandomNumber;
     // }
 
-  
-
     public void Make_Round()
     {
         for (int i = 0; i < 7; i++)
@@ -172,24 +169,19 @@ public class Match_Handler : MonoBehaviour
 
     public IEnumerator Play_Match()
     {
-        
-        
-        
         MouseHoverTiles.LockAll();
         
         var Tile = null as MouseHoverTiles;
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(1.0f);
         var whileVar = true;
         /*
         while (whileVar)
-        {
-            
+        {            
             Tile = GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).GetComponent<MouseHoverTiles>();
            if (Tile.locked == false)
             {
                 whileVar = false;
-            }
-            
+            }            
         }
         */
         //var Tile = GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).GetComponent<MouseHoverTiles>();
@@ -201,7 +193,6 @@ public class Match_Handler : MonoBehaviour
         
         StartCoroutine(GetMatchResult());
         //Debug.Log.Log(NPC_Choice);
-        
     }
 
     private IEnumerator PlayAnims(int a, int b)
@@ -311,7 +302,8 @@ public class Match_Handler : MonoBehaviour
             //GameObject.FindGameObjectWithTag("Tile " + NPC_Choice).transform.parent.GetComponent<Animator>().SetTrigger(Stunned);
         }
         canClick = true;
-        fiveButtons.gameObject.SetActive(true);
+        StateMachineManager.instance.theFiveButtons.gameObject.SetActive(true);
+        StateMachineManager.instance.the5buttons.gameObject.SetActive(true);
         MouseHoverTiles.LockAll();
 
         /*

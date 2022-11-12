@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+
+using TMPro;
+
 
 namespace HEXLIBRIUM
 {
-    public class HexagramObject
+    public class HexagramObject: MonoBehaviour
     {
         
         [SerializeField] private List<GameObject> vertex = new List<GameObject>();
@@ -14,6 +22,8 @@ namespace HEXLIBRIUM
         [SerializeField] private List<GameObject> lines = new List<GameObject>();
         
         private int ballsCount = 0;
+        
+    
         
     }
 }

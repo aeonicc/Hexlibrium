@@ -12,6 +12,9 @@ using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 using Pixelplacement;
 using TMPro;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+
 
 namespace HEXLIBRIUM
 {
@@ -25,11 +28,45 @@ namespace HEXLIBRIUM
     
     public class AppManager : MonoBehaviour
     {
+        public TextMeshProUGUI stateStatus;
+        public TextMeshProUGUI hexagramLeftTitle;
+        public TextMeshProUGUI hexagramLeftDescription;
+        
+        public TextMeshProUGUI hexagramMiddleTitle;
+        public TextMeshProUGUI hexagramMiddleDescription;
+        
+        public TextMeshProUGUI hexagramRightTitle;
+        public TextMeshProUGUI hexagramRightDescription;
+
+        public  GameObject scrollBarCenter;
+        
+        
         public static AppManager instance;
         
         //[SerializeField] private MainPanel mainPanel;
         [SerializeField] private UploadingPanel uploadingPanel;
         [SerializeField] private TextMeshProUGUI statusLabel;
+
+        public Image[] yinYangLines;
+        public Sprite[] yinYangLinesSprite;
+        
+        public Image[] hexagramLeftLines;
+        public Image[] hexagramMiddleLines;
+        public Image[] hexagramRightLines;
+
+        public Button[] seedOfLifeButtons;
+        
+        public Sprite[] seedOfLifeButtonsSprites;
+        public Image[] seedOfLifeButtonsImages;
+        
+        public TextMeshProUGUI seedOfLifeCounter;
+        
+        public Button[] fiveElementsPlayerButton;
+        
+        public Button[] fiveElementsNpcButton;
+        
+        public TextMeshProUGUI fiveElementsNpcCounterStatus;
+        public TextMeshProUGUI fiveElementsPlayerCounterStatus;
         
         [HideInInspector] public List<AttributeObject> currentAttributeObjects = new List<AttributeObject>();
 
@@ -39,6 +76,14 @@ namespace HEXLIBRIUM
         private void Awake()
         {
             instance = this;
+        }
+
+        public void Update()
+        {
+            stateStatus.text = (HoracleData.instance.stateRound).ToString();
+            
+            fiveElementsPlayerCounterStatus.text = MatchOracle.instance.fiveElementsPlayerCounter.ToString();
+            fiveElementsNpcCounterStatus.text = MatchOracle.instance.fiveElementsNPCCounter.ToString();
         }
 
         private void OnEnable()

@@ -56,10 +56,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OffSet: 75
+    - _OffSet: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _TurnBlackOrWhite: 1
     m_Colors:
-    - _Color: {r: 0.49803922, g: 0, b: 1, a: 0}
-    - _HDR_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+    - _BlackOrWhiteColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 0, b: 1, a: 0}
+    - _HDR_Color: {r: 0.2509804, g: 0.42352942, b: 0.5647059, a: 1}
   m_BuildTextureStacks: []

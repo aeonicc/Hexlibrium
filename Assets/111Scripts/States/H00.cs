@@ -26,6 +26,8 @@ public class H00 : State
            StateMachineManager.instance.buttonSolidity.gameObject.SetActive(true);
            StateMachineManager.instance.buttonCronos.gameObject.SetActive(true);
            StateMachineManager.instance.buttonGold.gameObject.SetActive(true);
+           
+           StateMachineManager.instance.intro.gameObject.SetActive(false);
       }
 }
 }

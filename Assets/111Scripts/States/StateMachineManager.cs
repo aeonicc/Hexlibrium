@@ -36,18 +36,28 @@ public class StateMachineManager : StateMachine
     public Camera playerCamera;
     public Camera boardCamera;
     public GameObject theFiveButtons;
-
+    
     public GameObject buttonHeath;
     public GameObject buttonCrystal;
     public GameObject buttonCoin;
     public GameObject buttonSolidity;
     public GameObject buttonCronos;
     public GameObject buttonGold;
-    
     public GameObject theBoss;
-
     public GameObject hLines;
 
+    public GameObject appCamera;
+
+    public GameObject intro;
+    public GameObject hologenetics;
+    public GameObject horacle;
+    public GameObject holonTime;
+    public GameObject heroJourney;
+    public GameObject helements;
+    public GameObject the5buttons;
+    
+    
+    
     
     
     public static StateMachineManager instance;
@@ -57,6 +67,18 @@ public class StateMachineManager : StateMachine
     private void Awake()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
+        ChangeState("H00");
+    }
+
+    public void StartGame()
+    {
+        
+        //player.walletAddress.Activate()
+        ChangeState("H10");
     }
 
     public void Update()
@@ -175,6 +197,9 @@ public class StateMachineManager : StateMachine
                 
             case "H08":
                 break;
+            
+            case "H14":
+                break;
                 
             case "MiningGold":
                 break;
@@ -198,12 +223,7 @@ public class StateMachineManager : StateMachine
     }
 
 
-    public void StartGame()
-    {
-        
-        //player.walletAddress.Activate()
-        ChangeState("H01");
-    }
+
  
     // public void Hh00()
     // {
